@@ -37,7 +37,7 @@ To automate this process,the fonction will download each SRA file using prefetch
 
 1.creation of the index(reference)
 
-	STAR --runThreadN 20 --runMode genomeGenerate --genomeDir /home/storage_1/yuping/index_star_mouseGRC39/ --genomeFastaFiles /home/storage_1/yuping/index_star_mouseGRC39/GRCm39.genome.fa  --sjdbGTFfile /home/storage_1/yuping/index_star_mouseGRC39/gencode.vM28.annotation.gtf
+	STAR --runThreadN 20 --runMode genomeGenerate --genomeDir /home/storage_1/yuping/index_star_mouseGRC39/ --genomeFastaFiles /home/storage_1/yuping/index_star_mouseGRC39/GRCm39.primary_assembly.genome.fa --sjdbGTFfile /home/storage_1/yuping/index_star_mouseGRC39/gencode.vM28.annotation.gtf
 	
 --genomeFastaFiles : ENSEMBL: files marked with .dna.primary.assembly
 ftp://ftp.ensembl.org/pub/release-77/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
