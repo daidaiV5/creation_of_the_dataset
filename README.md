@@ -44,3 +44,17 @@ ftp://ftp.ensembl.org/pub/release-77/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.
 
 --sjdbGTFfile : gencode.vM28.annotation.gtf
 
+2.mapping star
+#### star.py : Script for mapping automatically for a lot of fastq
+
+the script will open a folder which contain a lot of fastq, and it will automatically determine whether it is single-end or paired-end, and use the STAR for mapping.
+
+	--path_fastq, type=str, help="path to the folder fastq
+	--path_out, type=str,default='/home/storage_1/yuping/matrix_data/', help="path for saving the result of the star
+	--path_index, type=str,default='/home/storage_1/yuping/index_star_mouseGRC39/',help="path to the folder references of the mapping
+	--e, type=int,default=20, help="threads"
+
+
+
+
+
