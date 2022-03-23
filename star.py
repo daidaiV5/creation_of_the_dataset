@@ -12,14 +12,11 @@ def args_check():
      
     parametres:
     
-    --list_SRA, type=check_file_path, help="list of SRA:SRRXXXXX(.txt)"
-    --fastq, type=str,default='fastq', help="folder name"
-    --new_path, type=str,default='/home/storage_1/yuping/raw_data/',help="path to save the SRA fill
+    --path_fastq : path to the folder fastq
+    --path_out : path for saving the result of the star(defaut : /home/storage_1/yuping/matrix_data/ )
+    --path_inde : path to the folder references of the mapping
+    -- e : threads
     
-    (echo '/repository/user/main/public/root= new_path ' > $HOME/.ncbi/user-settings.mkfg) before run the script"
-    
-    --e, type=int,default='20', help="threads"
- 
      """
     ,formatter_class = argparse.RawTextHelpFormatter)
     parser.add_argument("--path_fastq", type=str, help="path to the folder fastq")
@@ -47,11 +44,16 @@ def read_dict(your_path):
 
 
 def star(path_out,your_path,dict_files,path_index,e):
+    """
+    this fonction will use STAR automatically.
+    
+    """   
+    
     for i in dict_files:
         if len(dict_files[i])==2:
             print('pair_end')
             name=dict_files[i][0].split('_')[0]
-            star = f' STAR --runMode alignReads --outSAMtype BAM Unsorted --genomeDir {path_index} --readFilesIn {your_path}/{dict_files[i][0]}.fastq {your_path}/{dict_files[i][1]}.fastq --runThreadN {e} --outFileNamePrefix {path_out}{name} '
+            star = f' STAR --runMode alignReads --outSAMtype BAM SortedByCoordinate --genomeDir {path_index} --readFilesIn {your_path}/{dict_files[i][0]}.fastq {your_path}/{dict_files[i][1]}.fastq --runThreadN {e} --outFileNamePrefix {path_out}{name} '
             subprocess.call(star, shell=True)
         else:
             print('single_end')
