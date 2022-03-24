@@ -55,6 +55,10 @@ the script will open a folder which contain a lot of fastq, and it will automati
 	--e, type=int,default=20, help="threads"
 
 
+## 4.matrix count
 
+for counting reads or fragments within R/Bioconductor is the Rsubread package which contains the featureCounts function (Liao, Smyth, and Shi 2014). This is very simple to use and very fast, and returns the count matrix as part of the result. 
+
+## 5.filtering of the miRNA:
 
 
