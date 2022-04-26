@@ -105,3 +105,24 @@ for (i in class_age) {
     write.csv(coldata_sex_class,name_of_coldata)
     }
 }
+
+
+
+
+### annotation of ontology
+###BiocManager::install('org.Mm.eg.db',force = TRUE)
+###BiocManager::install("clusterProfiler")
+
+library('org.Mm.eg.db')
+library("clusterProfiler")
+
+keytypes(org.Mm.eg.db)
+
+a=c('ENSMUSG00000040660')
+
+
+
+AnnotationDbi::select(org.Mm.eg.db, keys = a, columns = c("SYMBOL","GENENAME","ONTOLOGY","GO"), keytype = "ENSEMBL")
+
+
+

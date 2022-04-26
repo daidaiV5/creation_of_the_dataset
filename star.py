@@ -53,11 +53,11 @@ def star(path_out,your_path,dict_files,path_index,e):
         if len(dict_files[i])==2:
             print('pair_end')
             name=dict_files[i][0].split('_')[0]
-            star = f' STAR --runMode alignReads --outSAMtype BAM SortedByCoordinate --genomeDir {path_index} --readFilesIn {your_path}/{dict_files[i][0]}.fastq {your_path}/{dict_files[i][1]}.fastq --runThreadN {e} --outFileNamePrefix {path_out}{name} '
+            star = f' STAR --runMode alignReads --outSAMtype BAM SortedByCoordinate --genomeDir {path_index} --readFilesIn {your_path}/{dict_files[i][0]}.fastq {your_path}/{dict_files[i][1]}.fastq --runThreadN {e} --outFileNamePrefix {path_out}{name} --quantMode GeneCounts'
             subprocess.call(star, shell=True)
         else:
             print('single_end')
-            star = f' STAR --runMode alignReads --outSAMtype BAM SortedByCoordinate --genomeDir {path_index} --readFilesIn {your_path}/{dict_files[i][0]}.fastq --runThreadN {e} --outFileNamePrefix {path_out}{dict_files[i][0]}'
+            star = f' STAR --runMode alignReads --outSAMtype BAM SortedByCoordinate --genomeDir {path_index} --readFilesIn {your_path}/{dict_files[i][0]}.fastq --runThreadN {e} --outFileNamePrefix {path_out}{dict_files[i][0]} --quantMode GeneCounts'
             subprocess.call(star, shell=True)
 
 
