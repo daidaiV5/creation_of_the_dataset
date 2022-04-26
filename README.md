@@ -57,8 +57,20 @@ the script will open a folder which contain a lot of fastq, and it will automati
 
 ## 4.matrix count
 
+
 for counting reads or fragments within R/Bioconductor is the Rsubread package which contains the featureCounts function (Liao, Smyth, and Shi 2014). This is very simple to use and very fast, and returns the count matrix as part of the result. 
 
-## 5.filtering of the miRNA:
+package use : Rsubread
+
+
+#### count.R : the script will use for counting read from the fastq, and return the count matrix 
+ 
+
+## 5.filtering:
+
+#### matrix_remove_bruit.R : the script will use for filtering RNA protein non-coding and remove batch effect
+
+
+
 
 
